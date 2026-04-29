@@ -33,12 +33,12 @@
       "urlHandle": "yourusername"
     },
     "stats": {
-      "stat1n": "Beta",
-      "stat1label": "early access",
-      "stat2n": "USD$37",
-      "stat2label": "per year",
-      "stat3n": "< 2 min",
-      "stat3label": "to set up",
+      "stat1n": "USD$37",
+      "stat1label": "per year",
+      "stat2n": "< 2 min",
+      "stat2label": "to set up",
+      "stat3n": "Beta",
+      "stat3label": "early access",
       "stat4n": "Public",
       "stat4label": "listed in the Catalog"
     },
