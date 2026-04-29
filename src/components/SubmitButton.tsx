@@ -14,7 +14,7 @@ export function SubmitButton({ children, pendingLabel, className }: Props) {
     <button
       type="submit"
       disabled={pending}
-      aria-disabled={pending}
+      aria-busy={pending}
       className={className}
     >
       {pending ? pendingLabel : children}

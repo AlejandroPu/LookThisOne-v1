@@ -1,6 +1,18 @@
+const SECTIONS = [
+  { key: 'page-status', h: 72 },
+  { key: 'analytics', h: 56 },
+  { key: 'profile', h: 80 },
+  { key: 'links', h: 64 },
+];
+
 export default function DashboardLoading() {
   return (
-    <main className="mx-auto max-w-2xl animate-pulse px-6 py-12">
+    <main
+      role="status"
+      aria-live="polite"
+      aria-label="Loading dashboard"
+      className="mx-auto max-w-2xl animate-pulse px-6 py-12"
+    >
       {/* Header */}
       <div className="flex items-center justify-between gap-4">
         <div className="space-y-2">
@@ -14,9 +26,9 @@ export default function DashboardLoading() {
       </div>
 
       {/* Sections */}
-      {[72, 56, 80, 64].map((h, i) => (
+      {SECTIONS.map(({ key, h }) => (
         <div
-          key={i}
+          key={key}
           className="mt-8 space-y-3 rounded border border-gray-200 p-6"
         >
           <div className="h-4 w-32 rounded bg-gray-200" />

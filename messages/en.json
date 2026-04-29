@@ -240,6 +240,13 @@
       "deleting": "Deleting…"
     }
   },
+  "ErrorBoundary": {
+    "heading": "Something went wrong",
+    "dashboardHeading": "Dashboard unavailable",
+    "body": "An unexpected error occurred.",
+    "bodyWithId": "Something went wrong (ID: {digest}).",
+    "retry": "Try again"
+  },
   "NotFound": {
     "title": "Page not found",
     "description": "This link doesn't exist or has been removed.",

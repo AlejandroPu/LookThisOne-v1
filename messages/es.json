@@ -240,6 +240,13 @@
       "deleting": "Eliminando…"
     }
   },
+  "ErrorBoundary": {
+    "heading": "Algo salió mal",
+    "dashboardHeading": "Panel no disponible",
+    "body": "Ocurrió un error inesperado.",
+    "bodyWithId": "Algo salió mal (ID: {digest}).",
+    "retry": "Intentar de nuevo"
+  },
   "NotFound": {
     "title": "Página no encontrada",
     "description": "Este enlace no existe o ha sido eliminado.",
