@@ -16,7 +16,9 @@ function setLocaleCookie(locale: string) {
   document.cookie = `lto_locale=${locale}; Path=/; Max-Age=${maxAge}; SameSite=Lax${secure}`;
 }
 
-export function LocaleSwitcher() {
+type Variant = 'light' | 'dark';
+
+export function LocaleSwitcher({ variant = 'light' }: { variant?: Variant }) {
   const locale = useLocale();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -28,32 +30,36 @@ export function LocaleSwitcher() {
     });
   }
 
+  const activeClass =
+    variant === 'dark' ? 'text-off-white font-semibold' : 'font-semibold';
+  const inactiveClass =
+    variant === 'dark'
+      ? 'text-off-white/40 hover:text-off-white/80'
+      : 'text-zinc-400 hover:text-zinc-900';
+  const dividerClass =
+    variant === 'dark' ? 'text-off-white/20' : 'text-zinc-300';
+
   return (
-    <div className="flex items-center gap-1 text-xs" aria-label="Language">
+    <div
+      className="font-jakarta flex items-center gap-1 text-xs"
+      aria-label="Language"
+    >
       <button
         onClick={() => handleChange('en')}
         disabled={locale === 'en' || isPending}
         aria-label="English"
-        className={
-          locale === 'en'
-            ? 'font-semibold'
-            : 'text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
-        }
+        className={locale === 'en' ? activeClass : inactiveClass}
       >
         EN
       </button>
-      <span className="text-zinc-300 dark:text-zinc-600" aria-hidden="true">
+      <span className={dividerClass} aria-hidden="true">
         |
       </span>
       <button
         onClick={() => handleChange('es')}
         disabled={locale === 'es' || isPending}
         aria-label="Español"
-        className={
-          locale === 'es'
-            ? 'font-semibold'
-            : 'text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
-        }
+        className={locale === 'es' ? activeClass : inactiveClass}
       >
         ES
       </button>

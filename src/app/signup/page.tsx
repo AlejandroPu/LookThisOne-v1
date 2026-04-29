@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
+import GoogleIcon from '@/components/icons/GoogleIcon';
 import { signInWithGoogle } from '@/app/login/actions';
 
 import { signUpWithPassword } from './actions';
@@ -99,8 +100,9 @@ export default async function SignupPage({
       <form action={signInWithGoogle}>
         <button
           type="submit"
-          className="w-full rounded border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50"
+          className="flex w-full items-center justify-center gap-3 rounded border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50"
         >
+          <GoogleIcon />
           {t('continueWithGoogle')}
         </button>
       </form>

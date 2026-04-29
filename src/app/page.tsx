@@ -18,6 +18,7 @@ export default async function LandingPage() {
   ];
 
   const stats = [
+    { n: t('stats.stat1n'), label: t('stats.stat1label') },
     { n: t('stats.stat2n'), label: t('stats.stat2label') },
     { n: t('stats.stat3n'), label: t('stats.stat3label') },
     { n: t('stats.stat4n'), label: t('stats.stat4label') },
@@ -89,7 +90,7 @@ export default async function LandingPage() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-4 gap-5">
               {stats.map((s) => (
                 <div
                   key={s.n}
