@@ -182,7 +182,7 @@ export default function CatalogGrid() {
       u.bio.toLowerCase().includes(q);
     const matchTag = activeTag === 'todos' || u.tags.includes(activeTag);
     return matchSearch && matchTag;
-  }).sort((a, b) => a.n - b.n); // ascending by acquisition number (§7 strategy)
+  }).sort((a, b) => b.n - a.n); // descending: newest members appear at the top
 
   const resultLabel =
     filtered.length === 1
@@ -252,7 +252,10 @@ export default function CatalogGrid() {
               <strong className="text-dark font-semibold">{activeTag}</strong>
             </>
           ) : (
-            <> {t('resultOf', { total: PROFILES.length })}</>
+            <>
+              {' '}
+              — <BrandName baseClass="text-mid" />
+            </>
           )}
         </p>
 

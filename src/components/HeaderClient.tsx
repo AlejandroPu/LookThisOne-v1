@@ -70,7 +70,9 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
           >
             {labels.whatIs}{' '}
             <BrandName
-              baseClass={isLightCtx ? 'text-dark' : 'text-off-white'}
+              baseClass={
+                isLanding || !isLightCtx ? 'text-off-white' : 'text-dark'
+              }
             />
           </Link>
 
