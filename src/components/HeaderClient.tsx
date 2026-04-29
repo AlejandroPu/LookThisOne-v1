@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import BrandName from '@/components/BrandName';
@@ -62,12 +62,29 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
   const pathname = usePathname();
   const isLanding = pathname === '/';
   const isCatalog = pathname === '/catalogo';
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Close menu and return focus to hamburger button
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+    hamburgerRef.current?.focus();
+  }, []);
+
+  // Escape key closes the menu
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [menuOpen, closeMenu]);
 
   const isLightCtx = isCatalog || scrolled;
   const navItemBase =
@@ -154,6 +171,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
 
           {/* Mobile hamburger button */}
           <button
+            ref={hamburgerRef}
             type="button"
             aria-label={labels.menuLabel}
             aria-expanded={menuOpen}
@@ -184,7 +202,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
           {/* Menu panel */}
           <div
             id="mobile-menu"
-            className="border-border bg-off-white/98 fixed top-[68px] right-0 left-0 z-40 border-b shadow-lg backdrop-blur-lg md:hidden"
+            className="border-border bg-off-white/98 fixed top-[68px] right-0 left-0 z-[45] border-b shadow-lg backdrop-blur-lg md:hidden"
           >
             <nav
               aria-label="Mobile navigation"
@@ -192,7 +210,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
             >
               <Link
                 href="/"
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 className={[
                   'rounded-lg px-4 py-3 text-sm font-medium transition-colors duration-150',
                   isLanding
@@ -208,7 +226,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
 
               <Link
                 href="/catalogo"
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 className={[
                   'rounded-lg px-4 py-3 text-sm font-medium transition-colors duration-150',
                   isCatalog
@@ -223,7 +241,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
 
               <Link
                 href={ctaHref}
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 className="rounded-pill bg-brand font-jakarta px-5 py-3 text-center text-sm font-semibold text-white"
               >
                 {ctaLabel}
