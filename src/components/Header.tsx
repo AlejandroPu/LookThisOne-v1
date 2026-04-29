@@ -14,6 +14,7 @@ export default async function Header() {
         catalog: t('catalog'),
         reservePage: t('reservePage'),
         goToDashboard: t('goToDashboard'),
+        menuLabel: t('menuLabel'),
       }}
     />
   );
