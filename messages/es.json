@@ -4,11 +4,106 @@
     "homeAriaLabel": "LookThisOne — inicio",
     "features": "Características",
     "getStarted": "Empezar",
-    "goToDashboard": "Ir al panel"
+    "goToDashboard": "Ir al panel",
+    "whatIs": "Qué es",
+    "catalog": "Catálogo",
+    "reservePage": "Reservar página"
   },
   "Home": {
     "learnMore": "Saber más",
     "copyright": "© {year} LookThisOne. Todos los derechos reservados."
+  },
+  "Landing": {
+    "hero": {
+      "badge": "Acceso anticipado",
+      "headline1": "Tu link.",
+      "headline2": "Tu marca.",
+      "headline3": "Tu mundo.",
+      "subheadline": "Todo lo que tienes, en un solo enlace. Redes, tienda, portafolio, música — en una página que te representa, listada en el Catálogo público.",
+      "ctaPrimary": "Reservar mi página →",
+      "ctaPrice": "USD$37 / año",
+      "socialProof": "Tu perfil aparece listado en el Catálogo público"
+    },
+    "about": {
+      "badge": "El producto",
+      "heading1": "Todo lo que tienes,",
+      "heading2": "en un solo enlace",
+      "body": "es tu página personal en internet. Agrega todos tus links — redes sociales, tienda, portafolio, blog, podcast — y comparte una sola URL en tu bio. Simple, rápido y con una estética que te hace destacar.",
+      "urlLabel": "Tu enlace personalizado:",
+      "urlHandle": "tuusuario"
+    },
+    "stats": {
+      "stat1label": "perfiles activos",
+      "stat2n": "USD$37",
+      "stat2label": "al año",
+      "stat3n": "< 2 min",
+      "stat3label": "para configurar",
+      "stat4n": "Público",
+      "stat4label": "listado en el Catálogo"
+    },
+    "features": {
+      "badge": "Todo lo que necesitas",
+      "heading": "Funcionalidades para crecer",
+      "item0title": "Links ilimitados",
+      "item0desc": "Sin restricciones artificiales. Agrega, ordena y edita todos los links que necesites en cualquier momento.",
+      "item1title": "Analíticas reales",
+      "item1desc": "Clicks, vistas y procedencia del tráfico. Sabe exactamente qué funciona y ajusta tu estrategia.",
+      "item2title": "Diseño 100% tuyo",
+      "item2desc": "Colores, fuentes, fondos y layouts. Tu página, tu identidad. Sin plantillas genéricas ni límites creativos.",
+      "item3title": "Perfil en el Catálogo",
+      "item3desc": "Tu página aparece automáticamente en el Catálogo público — ordenado por orden de adquisición. Más visibilidad sin esfuerzo.",
+      "item4title": "Precio anual fijo",
+      "item4desc": "USD$37 al año, sin sorpresas. Sin suscripciones por niveles ni costos ocultos.",
+      "item5title": "Privacidad y control",
+      "item5desc": "Tus datos son tuyos. Sin vender información a terceros. Sin rastreadores ocultos. Nunca."
+    },
+    "howItWorks": {
+      "badge": "Así de fácil",
+      "heading": "En 3 pasos estás listo",
+      "step0n": "01",
+      "step0title": "Reserva tu página",
+      "step0desc": "Solo tu email y USD$37 al año. En 30 segundos tienes tu cuenta y tu número de perfil.",
+      "step1n": "02",
+      "step1title": "Personaliza tu página",
+      "step1desc": "Agrega links, elige colores, sube tu foto. Haz que se vea exactamente como tú quieres.",
+      "step2n": "03",
+      "step2title": "Comparte tu enlace",
+      "step2desc": "Ponlo en tu bio de Instagram, TikTok, YouTube o donde viva tu audiencia."
+    },
+    "cta": {
+      "heading": "¿Listo para brillar online?",
+      "bodyBefore": "Crea tu página",
+      "bodyAfter": "y empieza a compartir todos tus links desde una sola URL.",
+      "button": "Crear mi página →",
+      "price": "USD$37 / año"
+    },
+    "footer": {
+      "tagline1": "Tu link. Tu marca. Tu mundo.",
+      "tagline2": "El link-in-bio para tu marca personal.",
+      "copyrightAfter": "— Hecho con ♥ para tu marca personal",
+      "productHeading": "Producto",
+      "legalHeading": "Legal",
+      "linkFeatures": "Funcionalidades",
+      "linkCatalog": "Catálogo",
+      "linkPrivacy": "Privacidad",
+      "linkTerms": "Términos"
+    }
+  },
+  "Catalog": {
+    "pageTitle": "Catálogo — LookThis.One",
+    "pageDescription": "Los perfiles que ya reservaron su LookThis.One.",
+    "heading": "Catálogo",
+    "subtitleBefore": "Los perfiles que ya reservaron su",
+    "subtitleAfter": "— numerados por orden de adquisición.",
+    "searchPlaceholder": "Buscar perfiles...",
+    "resultSingular": "{count} perfil",
+    "resultPlural": "{count} perfiles",
+    "resultIn": "en",
+    "resultOf": "de {total} reservados",
+    "noResults": "No se encontraron perfiles",
+    "noResultsHint": "Prueba con otro término o categoría",
+    "viewProfile": "Ver →",
+    "tagAll": "todos"
   },
   "Login": {
     "title": "Iniciar sesión",

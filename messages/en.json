@@ -4,11 +4,106 @@
     "homeAriaLabel": "LookThisOne — home",
     "features": "Features",
     "getStarted": "Get started",
-    "goToDashboard": "Go to dashboard"
+    "goToDashboard": "Go to dashboard",
+    "whatIs": "What is it",
+    "catalog": "Catalog",
+    "reservePage": "Reserve page"
   },
   "Home": {
     "learnMore": "Learn more",
     "copyright": "© {year} LookThisOne. All rights reserved."
+  },
+  "Landing": {
+    "hero": {
+      "badge": "Early access",
+      "headline1": "Your link.",
+      "headline2": "Your brand.",
+      "headline3": "Your world.",
+      "subheadline": "Everything you have, in one link. Social, store, portfolio, music — one page that represents you, listed in the public Catalog.",
+      "ctaPrimary": "Reserve my page →",
+      "ctaPrice": "USD$37 / year",
+      "socialProof": "Your profile gets listed in the public Catalog"
+    },
+    "about": {
+      "badge": "The product",
+      "heading1": "Everything you have,",
+      "heading2": "in one link",
+      "body": "is your personal page on the internet. Add all your links — social networks, store, portfolio, blog, podcast — and share one URL in your bio. Simple, fast, and with an aesthetic that makes you stand out.",
+      "urlLabel": "Your personalised link:",
+      "urlHandle": "yourusername"
+    },
+    "stats": {
+      "stat1label": "active profiles",
+      "stat2n": "USD$37",
+      "stat2label": "per year",
+      "stat3n": "< 2 min",
+      "stat3label": "to set up",
+      "stat4n": "Public",
+      "stat4label": "listed in the Catalog"
+    },
+    "features": {
+      "badge": "Everything you need",
+      "heading": "Features to grow",
+      "item0title": "Unlimited links",
+      "item0desc": "No artificial limits. Add, reorder and edit as many links as you need at any time.",
+      "item1title": "Real analytics",
+      "item1desc": "Clicks, views and traffic sources. Know exactly what works and adjust your strategy.",
+      "item2title": "100% your design",
+      "item2desc": "Colours, fonts, backgrounds and layouts. Your page, your identity. No generic templates or creative limits.",
+      "item3title": "Profile in the Catalog",
+      "item3desc": "Your page is automatically listed in the public Catalog — ordered by acquisition number. More visibility with no effort.",
+      "item4title": "Fixed annual price",
+      "item4desc": "USD$37 per year, no surprises. No tiered subscriptions or hidden costs.",
+      "item5title": "Privacy and control",
+      "item5desc": "Your data is yours. We never sell information to third parties. No hidden trackers. Ever."
+    },
+    "howItWorks": {
+      "badge": "That simple",
+      "heading": "Ready in 3 steps",
+      "step0n": "01",
+      "step0title": "Reserve your page",
+      "step0desc": "Just your email and USD$37 per year. In 30 seconds you have your account and your profile number.",
+      "step1n": "02",
+      "step1title": "Customise your page",
+      "step1desc": "Add links, choose colours, upload your photo. Make it look exactly how you want.",
+      "step2n": "03",
+      "step2title": "Share your link",
+      "step2desc": "Put it in your Instagram, TikTok, YouTube bio or wherever your audience lives."
+    },
+    "cta": {
+      "heading": "Ready to shine online?",
+      "bodyBefore": "Create your",
+      "bodyAfter": "page and start sharing all your links from one URL.",
+      "button": "Create my page →",
+      "price": "USD$37 / year"
+    },
+    "footer": {
+      "tagline1": "Your link. Your brand. Your world.",
+      "tagline2": "The link-in-bio for your personal brand.",
+      "copyrightAfter": "— Made with ♥ for your personal brand",
+      "productHeading": "Product",
+      "legalHeading": "Legal",
+      "linkFeatures": "Features",
+      "linkCatalog": "Catalog",
+      "linkPrivacy": "Privacy",
+      "linkTerms": "Terms"
+    }
+  },
+  "Catalog": {
+    "pageTitle": "Catalog — LookThis.One",
+    "pageDescription": "Profiles that have already reserved their LookThis.One.",
+    "heading": "Catalog",
+    "subtitleBefore": "Profiles that have already reserved their",
+    "subtitleAfter": "— numbered by acquisition order.",
+    "searchPlaceholder": "Search profiles...",
+    "resultSingular": "{count} profile",
+    "resultPlural": "{count} profiles",
+    "resultIn": "in",
+    "resultOf": "of {total} reserved",
+    "noResults": "No profiles found",
+    "noResultsHint": "Try a different term or category",
+    "viewProfile": "View →",
+    "tagAll": "all"
   },
   "Login": {
     "title": "Sign in",
