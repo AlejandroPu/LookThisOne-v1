@@ -114,8 +114,10 @@
     "email": "Correo electrónico",
     "password": "Contraseña",
     "submit": "Iniciar sesión",
+    "submitting": "Iniciando sesión…",
     "or": "o",
-    "continueWithGoogle": "Continuar con Google"
+    "continueWithGoogle": "Continuar con Google",
+    "signingInWithGoogle": "Redirigiendo…"
   },
   "Signup": {
     "title": "CREAR una cuenta",
@@ -127,8 +129,10 @@
     "password": "Contraseña",
     "passwordHint": "Mínimo 8 caracteres.",
     "submit": "Crear cuenta",
+    "submitting": "Creando cuenta…",
     "or": "o",
     "continueWithGoogle": "Continuar con Google",
+    "signingInWithGoogle": "Redirigiendo…",
     "checkInbox": "Revisa tu bandeja de entrada para confirmar tu dirección de correo."
   },
   "Onboarding": {
@@ -138,7 +142,8 @@
     "usernameLabel": "Nombre de usuario",
     "usernamePlaceholder": "tunombre",
     "usernameHint": "3–20 caracteres. Letras minúsculas, dígitos, guion bajo o guion. Se normaliza a minúsculas al guardar.",
-    "submit": "Continuar"
+    "submit": "Continuar",
+    "submitting": "Continuando…"
   },
   "Dashboard": {
     "title": "Panel",

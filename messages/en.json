@@ -114,8 +114,10 @@
     "email": "Email",
     "password": "Password",
     "submit": "Sign in",
+    "submitting": "Signing in…",
     "or": "or",
-    "continueWithGoogle": "Continue with Google"
+    "continueWithGoogle": "Continue with Google",
+    "signingInWithGoogle": "Redirecting…"
   },
   "Signup": {
     "title": "CREATE an account",
@@ -127,8 +129,10 @@
     "password": "Password",
     "passwordHint": "At least 8 characters.",
     "submit": "Create account",
+    "submitting": "Creating account…",
     "or": "or",
     "continueWithGoogle": "Continue with Google",
+    "signingInWithGoogle": "Redirecting…",
     "checkInbox": "Check your inbox to confirm your email address."
   },
   "Onboarding": {
@@ -138,7 +142,8 @@
     "usernameLabel": "Username",
     "usernamePlaceholder": "yourname",
     "usernameHint": "3–20 chars. Lowercase letters, digits, underscore or hyphen. Input is normalised to lowercase before saving.",
-    "submit": "Continue"
+    "submit": "Continue",
+    "submitting": "Continuing…"
   },
   "Dashboard": {
     "title": "Dashboard",

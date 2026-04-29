@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
 import { redirectIfOnboarded } from '@/lib/auth/dal';
+import { SubmitButton } from '@/components/SubmitButton';
 
 import { createInitialWorkspace } from './actions';
 
@@ -60,12 +61,12 @@ export default async function OnboardingPage({
           />
           <span className="text-xs text-gray-500">{t('usernameHint')}</span>
         </label>
-        <button
-          type="submit"
-          className="rounded bg-black px-3 py-2 text-sm font-medium text-white hover:bg-gray-800"
+        <SubmitButton
+          pendingLabel={t('submitting')}
+          className="rounded bg-black px-3 py-2 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-60"
         >
           {t('submit')}
-        </button>
+        </SubmitButton>
       </form>
     </main>
   );
