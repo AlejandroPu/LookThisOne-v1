@@ -34,8 +34,14 @@ export async function AnalyticsWidget({ pageId, published, links }: Props) {
     }),
   ]);
 
+  // Prisma groupBy types linkId as string|null even with the `not: null` filter.
+  // Filter here to keep the map keys as pure strings.
   const clicksByLinkId = Object.fromEntries(
-    linkClicks.map((row) => [row.linkId, row._count.id]),
+    linkClicks
+      .filter(
+        (row): row is typeof row & { linkId: string } => row.linkId !== null,
+      )
+      .map((row) => [row.linkId, row._count.id]),
   );
 
   const hasData = views > 0 || clicks > 0;
