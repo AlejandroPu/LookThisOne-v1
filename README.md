@@ -50,6 +50,8 @@ users ─┬─ workspace_members ─ workspaces ─┬─ pages ─┬─ links
 - `users.id` mirrors `auth.users.id` from Supabase Auth (UUID).
 - Every table has RLS policies; anonymous visitors can read published pages, their enabled links, and themes, and can insert analytics events. Everything else is denied until authenticated flows land.
 
+> **Known v1 limitation:** The `analytics_events` INSERT policy uses `WITH CHECK (true)`, which the Supabase Security Advisor flags. This is an accepted trade-off for v1 — anonymous tracking requires a permissive insert. v2 will tighten this to `WITH CHECK (page_id IN (SELECT id FROM pages WHERE published = true))`.
+
 ### Stack
 
 | Layer     | Choice                                    |
@@ -168,9 +170,9 @@ See [`CLAUDE.md`](./CLAUDE.md) for the full contributor guide (also read by AI a
 - [x] Account settings: change username, email, password, delete account
 - [x] Cookie consent banner (GDPR)
 - [x] Internationalisation: EN / ES
-- [ ] UI & copy polish (small fixes across flows)
-- [ ] Visual redesign with Claude Design
-- [ ] Loading and error states audit
+- [x] Visual redesign (brand tokens, landing, dashboard, public profile)
+- [x] Mobile responsive layout
+- [x] Loading and error states (SubmitButton, error boundaries, dashboard skeleton)
 - [ ] Wrap up v1 — begin v2 in a private repo
 
 ---
