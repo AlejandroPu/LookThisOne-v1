@@ -60,6 +60,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
           <Link
             href="/"
             className={[
+              'hidden md:inline-flex',
               navItemBase,
               isLanding
                 ? isLightCtx
@@ -81,6 +82,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
           <Link
             href="/catalogo"
             className={[
+              'hidden md:inline-flex',
               navItemBase,
               isCatalog
                 ? 'bg-dark text-off-white font-semibold'

@@ -254,7 +254,7 @@ export default function CatalogGrid() {
       </div>
 
       {/* Result count + list */}
-      <div className="mx-auto max-w-screen-xl px-7 pt-9 pb-16">
+      <div className="mx-auto max-w-screen-xl px-4 pt-9 pb-16 sm:px-7">
         <p className="font-jakarta text-mid mb-6 text-sm">
           {resultLabel}
           {activeTag !== TAG_ALL ? (
@@ -277,31 +277,34 @@ export default function CatalogGrid() {
               <li
                 key={u.handle}
                 className={[
-                  'grid items-center gap-4 px-5 py-3.5 transition-colors duration-150 hover:bg-[oklch(98%_0.005_285)]',
+                  'flex flex-col gap-2 px-4 py-4 transition-colors duration-150 hover:bg-[oklch(98%_0.005_285)] sm:grid sm:items-center sm:gap-4 sm:px-5 sm:py-3.5',
                   i === 0 ? '' : 'border-border border-t',
                 ].join(' ')}
                 style={{ gridTemplateColumns: '64px 44px 1fr auto' }}
               >
-                {/* Acquisition number */}
-                <span
-                  className={[
-                    'font-syne text-[22px] font-extrabold tracking-[-0.5px] tabular-nums',
-                    u.n <= 3 ? 'text-brand' : 'text-[oklch(70%_0.02_285)]',
-                  ].join(' ')}
-                >
-                  #{String(u.n).padStart(2, '0')}
-                </span>
+                {/* Mobile: number + avatar inline; desktop: separate grid cells */}
+                <div className="flex items-center gap-3 sm:contents">
+                  {/* Acquisition number */}
+                  <span
+                    className={[
+                      'font-syne text-[20px] font-extrabold tracking-[-0.5px] tabular-nums sm:text-[22px]',
+                      u.n <= 3 ? 'text-brand' : 'text-[oklch(70%_0.02_285)]',
+                    ].join(' ')}
+                  >
+                    #{String(u.n).padStart(2, '0')}
+                  </span>
 
-                {/* Avatar */}
-                <span
-                  className="font-syne flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold text-white"
-                  style={{
-                    background: u.color,
-                    boxShadow: `0 1px 6px ${u.color}40`,
-                  }}
-                >
-                  {u.initial}
-                </span>
+                  {/* Avatar */}
+                  <span
+                    className="font-syne flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
+                    style={{
+                      background: u.color,
+                      boxShadow: `0 1px 6px ${u.color}40`,
+                    }}
+                  >
+                    {u.initial}
+                  </span>
+                </div>
 
                 {/* Name + handle + bio */}
                 <div className="min-w-0">

@@ -10,7 +10,7 @@ export default async function HowItWorks() {
   }));
 
   return (
-    <section className="bg-accent px-7 py-[108px]">
+    <section className="bg-accent px-5 py-16 sm:px-7 sm:py-[108px]">
       <div className="mx-auto max-w-screen-xl">
         {/* Section header */}
         <div className="mb-[72px] text-center">
@@ -29,10 +29,10 @@ export default async function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="relative grid grid-cols-3 gap-10">
-          {/* connector line */}
+        <div className="relative grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
+          {/* connector line — desktop only */}
           <div
-            className="absolute top-10 right-[16.5%] left-[16.5%] h-px bg-white/20"
+            className="absolute top-10 right-[16.5%] left-[16.5%] hidden h-px bg-white/20 md:block"
             aria-hidden="true"
           />
 
