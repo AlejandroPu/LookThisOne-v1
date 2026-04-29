@@ -5,7 +5,7 @@
     "features": "Features",
     "getStarted": "Get started",
     "goToDashboard": "Go to dashboard",
-    "whatIs": "What is it",
+    "whatIs": "What is",
     "catalog": "Catalog",
     "reservePage": "Reserve page"
   },
@@ -33,7 +33,8 @@
       "urlHandle": "yourusername"
     },
     "stats": {
-      "stat1label": "active profiles",
+      "stat1n": "Beta",
+      "stat1label": "early access",
       "stat2n": "USD$37",
       "stat2label": "per year",
       "stat3n": "< 2 min",

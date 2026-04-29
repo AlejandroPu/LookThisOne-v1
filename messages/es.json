@@ -33,7 +33,8 @@
       "urlHandle": "tuusuario"
     },
     "stats": {
-      "stat1label": "perfiles activos",
+      "stat1n": "Beta",
+      "stat1label": "acceso anticipado",
       "stat2n": "USD$37",
       "stat2label": "al año",
       "stat3n": "< 2 min",
@@ -119,13 +120,13 @@
   "Signup": {
     "title": "Crear una cuenta",
     "alreadyHaveOne": "¿Ya tienes una?",
-    "signIn": "Inicia sesión",
+    "signIn": "INICIA sesión",
     "betaTitle": "Versión beta.",
     "betaBody": "LookThisOne está en desarrollo activo. Las cuentas creadas durante la beta pueden reiniciarse cuando se lance la versión estable.",
     "email": "Correo electrónico",
     "password": "Contraseña",
     "passwordHint": "Mínimo 8 caracteres.",
-    "submit": "Crear cuenta",
+    "submit": "CREAR cuenta",
     "or": "o",
     "continueWithGoogle": "Continuar con Google",
     "checkInbox": "Revisa tu bandeja de entrada para confirmar tu dirección de correo."

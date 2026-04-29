@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import BrandName from '@/components/BrandName';
+import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 
 type Props = {
   isLoggedIn: boolean;
@@ -55,7 +56,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
         </Link>
 
         {/* Nav */}
-        <nav className="flex items-center gap-1">
+        <nav aria-label="Main navigation" className="flex items-center gap-1">
           <Link
             href="/"
             className={[
@@ -97,6 +98,10 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
           >
             {isLoggedIn ? labels.goToDashboard : labels.reservePage}
           </Link>
+
+          <div className="ml-3">
+            <LocaleSwitcher variant={isLightCtx ? 'light' : 'dark'} />
+          </div>
         </nav>
       </div>
     </header>

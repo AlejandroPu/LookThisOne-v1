@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
+import GoogleIcon from '@/components/icons/GoogleIcon';
+
 import { signInWithGoogle, signInWithPassword } from './actions';
 
 export const metadata = {
@@ -78,8 +80,9 @@ export default async function LoginPage({
       <form action={signInWithGoogle}>
         <button
           type="submit"
-          className="w-full rounded border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50"
+          className="flex w-full items-center justify-center gap-3 rounded border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50"
         >
+          <GoogleIcon />
           {t('continueWithGoogle')}
         </button>
       </form>
