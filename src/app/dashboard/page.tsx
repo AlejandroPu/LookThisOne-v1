@@ -7,6 +7,7 @@ import { prisma } from '@/lib/prisma';
 import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 
 import { togglePublish } from './actions';
+import { AnalyticsWidget } from './AnalyticsWidget';
 import { LinksEditor } from './LinksEditor';
 import { ProfileEditor } from './ProfileEditor';
 import { ThemePicker } from './ThemePicker';
@@ -103,6 +104,12 @@ export default async function DashboardPage() {
           )}
         </div>
       </section>
+
+      <AnalyticsWidget
+        pageId={page.id}
+        published={page.published}
+        links={page.links.map((l) => ({ id: l.id, title: l.title }))}
+      />
 
       <ProfileEditor
         title={page.title}

@@ -151,7 +151,13 @@
     "publish": "Publish",
     "unpublish": "Unpublish",
     "viewPublicPage": "View public page ↗",
-    "publishHint": "Publish to make your page reachable at the URL above."
+    "publishHint": "Publish to make your page reachable at the URL above.",
+    "analyticsHeading": "Analytics",
+    "analyticsViews": "Page views",
+    "analyticsClicks": "Link clicks",
+    "analyticsClicksPerLink": "Clicks per link",
+    "analyticsNoData": "No data yet — analytics will appear once your page receives visits.",
+    "analyticsUnpublished": "Publish your page to start collecting analytics."
   },
   "Links": {
     "heading": "Links",
