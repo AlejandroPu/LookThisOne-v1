@@ -185,7 +185,7 @@ export default async function Hero() {
 
             {/* Social proof */}
             <div className="flex items-center gap-4">
-              <div className="flex">
+              <div className="flex" aria-hidden="true">
                 {avatarColors.map((c, i) => (
                   <div
                     key={i}

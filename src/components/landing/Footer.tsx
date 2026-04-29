@@ -81,7 +81,8 @@ export default async function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[oklch(22%_0.02_285)] pt-7">
           <p className="font-jakarta text-[13px] text-[oklch(38%_0.02_285)]">
-            © 2026 <BrandName baseClass="text-[oklch(38%_0.02_285)]" />{' '}
+            © {new Date().getFullYear()}{' '}
+            <BrandName baseClass="text-[oklch(38%_0.02_285)]" />{' '}
             {t('copyrightAfter')}
           </p>
           <LocaleSwitcher />

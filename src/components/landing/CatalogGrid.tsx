@@ -16,8 +16,8 @@ type Profile = {
   tags: string[];
 };
 
-// TODO: replace with Prisma query — SELECT * FROM pages WHERE published=true
-// ORDER BY id ASC (acquisition_number column does not exist yet; id is proxy).
+// TODO: replace with real Prisma query once acquisition_number column is added.
+// ALTER TABLE pages ADD COLUMN acquisition_number SERIAL UNIQUE (assigned on first publish).
 const PROFILES: Profile[] = [
   {
     n: 1,
@@ -129,8 +129,11 @@ const PROFILES: Profile[] = [
   },
 ];
 
+// Locale-neutral sentinel — never displayed directly; rendered via t('tagAll')
+const TAG_ALL = 'all';
+
 const ALL_TAGS = [
-  'todos',
+  TAG_ALL,
   'contenido',
   'tech',
   'fitness',
@@ -172,7 +175,7 @@ function SearchIcon() {
 export default function CatalogGrid() {
   const t = useTranslations('Catalog');
   const [search, setSearch] = useState('');
-  const [activeTag, setActiveTag] = useState('todos');
+  const [activeTag, setActiveTag] = useState(TAG_ALL);
 
   const filtered = PROFILES.filter((u) => {
     const q = search.toLowerCase();
@@ -180,7 +183,7 @@ export default function CatalogGrid() {
       u.name.toLowerCase().includes(q) ||
       u.handle.toLowerCase().includes(q) ||
       u.bio.toLowerCase().includes(q);
-    const matchTag = activeTag === 'todos' || u.tags.includes(activeTag);
+    const matchTag = activeTag === TAG_ALL || u.tags.includes(activeTag);
     return matchSearch && matchTag;
   }).sort((a, b) => b.n - a.n); // descending: newest members appear at the top
 
@@ -235,9 +238,18 @@ export default function CatalogGrid() {
                   : 'hover:bg-border bg-[oklch(95%_0.005_285)] text-[oklch(45%_0.02_285)]',
               ].join(' ')}
             >
-              {tag}
+              {tag === TAG_ALL ? t('tagAll') : tag}
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Demo notice */}
+      <div className="border-border border-b bg-[oklch(98%_0.008_88)] px-7 py-2.5">
+        <div className="mx-auto max-w-screen-xl">
+          <p className="font-jakarta text-[12px] text-[oklch(55%_0.08_88)]">
+            {t('demoNotice')}
+          </p>
         </div>
       </div>
 
@@ -245,7 +257,7 @@ export default function CatalogGrid() {
       <div className="mx-auto max-w-screen-xl px-7 pt-9 pb-16">
         <p className="font-jakarta text-mid mb-6 text-sm">
           {resultLabel}
-          {activeTag !== 'todos' ? (
+          {activeTag !== TAG_ALL ? (
             <>
               {' '}
               {t('resultIn')}{' '}

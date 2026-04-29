@@ -103,7 +103,8 @@
     "noResults": "No profiles found",
     "noResultsHint": "Try a different term or category",
     "viewProfile": "View →",
-    "tagAll": "all"
+    "tagAll": "all",
+    "demoNotice": "Sample profiles — real profiles will appear here once the Catalog is live."
   },
   "Login": {
     "title": "Sign in",

@@ -9,6 +9,7 @@ export default async function Header() {
     <HeaderClient
       isLoggedIn={!!user}
       labels={{
+        homeAriaLabel: t('homeAriaLabel'),
         whatIs: t('whatIs'),
         catalog: t('catalog'),
         reservePage: t('reservePage'),

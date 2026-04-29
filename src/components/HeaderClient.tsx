@@ -8,6 +8,7 @@ import BrandName from '@/components/BrandName';
 type Props = {
   isLoggedIn: boolean;
   labels: {
+    homeAriaLabel: string;
     whatIs: string;
     catalog: string;
     reservePage: string;
@@ -44,7 +45,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
         {/* Logo */}
         <Link
           href="/"
-          aria-label="LookThis.One — inicio"
+          aria-label={labels.homeAriaLabel}
           className={[
             'font-syne text-[21px] font-extrabold tracking-tight transition-colors duration-300',
             isLightCtx ? 'text-dark' : 'text-off-white',
