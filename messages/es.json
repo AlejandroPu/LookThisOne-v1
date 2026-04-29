@@ -33,12 +33,12 @@
       "urlHandle": "tuusuario"
     },
     "stats": {
-      "stat1n": "Beta",
-      "stat1label": "acceso anticipado",
-      "stat2n": "USD$37",
-      "stat2label": "al año",
-      "stat3n": "< 2 min",
-      "stat3label": "para configurar",
+      "stat1n": "USD$37",
+      "stat1label": "al año",
+      "stat2n": "< 2 min",
+      "stat2label": "para configurar",
+      "stat3n": "Beta",
+      "stat3label": "acceso anticipado",
       "stat4n": "Público",
       "stat4label": "listado en el Catálogo"
     },
