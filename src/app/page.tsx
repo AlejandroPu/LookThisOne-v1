@@ -12,9 +12,9 @@ export default async function LandingPage() {
 
   // Demo handles for the URL card
   const demoHandles = [
-    { handle: '@ana.creates', color: 'bg-brand' },
-    { handle: '@djnova', color: 'bg-accent' },
-    { handle: '@marcos.dev', color: 'bg-success' },
+    { handle: 'ana.creates', color: 'bg-brand' },
+    { handle: 'djnova', color: 'bg-accent' },
+    { handle: 'marcos.dev', color: 'bg-success' },
   ];
 
   // TODO: replace +12K with real active-profile count once we have real users
@@ -82,8 +82,7 @@ export default async function LandingPage() {
                         className={`h-7 w-7 flex-shrink-0 rounded-full ${u.color}`}
                       />
                       <span className="font-jakarta text-mid text-[13px]">
-                        <BrandName baseClass="text-mid" />
-                        {u.handle}
+                        <BrandName baseClass="text-mid" />/{u.handle}
                       </span>
                     </div>
                   ))}
