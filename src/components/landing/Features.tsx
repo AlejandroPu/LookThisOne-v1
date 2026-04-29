@@ -21,7 +21,7 @@ export default async function Features() {
   }));
 
   return (
-    <section className="bg-brand px-7 py-[108px]">
+    <section className="bg-brand px-5 py-16 sm:px-7 sm:py-[108px]">
       <div className="mx-auto max-w-screen-xl">
         {/* Section header */}
         <div className="mb-16 text-center">
@@ -40,7 +40,7 @@ export default async function Features() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-3 gap-[18px]">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-[18px] lg:grid-cols-3">
           {items.map((f) => (
             <article
               key={f.title}

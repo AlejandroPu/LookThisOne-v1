@@ -31,9 +31,12 @@ export default async function LandingPage() {
         <Hero />
 
         {/* About — "¿Qué es LookThis.One?" */}
-        <section id="features" className="bg-off-white px-7 py-[108px]">
+        <section
+          id="features"
+          className="bg-off-white px-5 py-16 sm:px-7 sm:py-[108px]"
+        >
           <div className="mx-auto max-w-screen-xl">
-            <div className="mb-[72px] grid grid-cols-2 items-center gap-20">
+            <div className="mb-[72px] grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-20">
               {/* Copy */}
               <div>
                 <div className="rounded-pill bg-brand-light mb-6 inline-flex items-center gap-2 px-4 py-[6px]">
@@ -90,7 +93,7 @@ export default async function LandingPage() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
               {stats.map((s) => (
                 <div
                   key={s.n}

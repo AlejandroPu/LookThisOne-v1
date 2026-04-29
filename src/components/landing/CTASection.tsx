@@ -6,11 +6,11 @@ export default async function CTASection() {
   const t = await getTranslations('Landing.cta');
 
   return (
-    <section className="bg-warning px-7 py-32">
+    <section className="bg-warning px-5 py-20 sm:px-7 sm:py-32">
       <div className="mx-auto max-w-[680px] text-center">
         <h2
           className="font-syne text-dark mb-5 leading-[1.07] font-extrabold tracking-[-2px]"
-          style={{ fontSize: 'clamp(40px, 5vw, 68px)' }}
+          style={{ fontSize: 'clamp(30px, 5vw, 68px)' }}
         >
           {t('heading')}
         </h2>

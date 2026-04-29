@@ -116,7 +116,7 @@ export default async function Hero() {
   ];
 
   return (
-    <section className="bg-dark relative flex min-h-screen items-center overflow-hidden px-7 pt-[120px] pb-20">
+    <section className="bg-dark relative flex min-h-screen items-center overflow-hidden px-5 pt-24 pb-16 sm:px-7 sm:pt-[120px] sm:pb-20">
       {/* ambient glows */}
       <div
         className="pointer-events-none absolute -top-40 -right-40 h-[640px] w-[640px] rounded-full"
@@ -133,9 +133,9 @@ export default async function Hero() {
         }}
       />
 
-      <div className="relative mx-auto flex w-full max-w-screen-xl items-center justify-between gap-16">
+      <div className="relative mx-auto flex w-full max-w-screen-xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
         {/* Copy */}
-        <div className="flex-1">
+        <div className="flex-1 text-center lg:text-left">
           {/* badge */}
           <div
             className="animate-fade-up rounded-pill mb-7 inline-flex items-center gap-2 px-4 py-[6px]"
@@ -152,8 +152,8 @@ export default async function Hero() {
 
           {/* headline */}
           <h1
-            className="font-syne mb-6 leading-[1.03] font-extrabold tracking-[-2.5px]"
-            style={{ fontSize: 'clamp(52px, 6.5vw, 96px)' }}
+            className="font-syne mb-6 leading-[1.03] font-extrabold tracking-[-1.2px] sm:tracking-[-2.5px]"
+            style={{ fontSize: 'clamp(36px, 6.5vw, 96px)' }}
           >
             <span className="text-brand">{t('headline1')}</span>
             <br />
@@ -162,16 +162,13 @@ export default async function Hero() {
             <span className="text-off-white">{t('headline3')}</span>
           </h1>
 
-          <p
-            className="font-jakarta mb-10 leading-[1.65] font-normal text-[oklch(68%_0.02_285)]"
-            style={{ fontSize: 19, maxWidth: 460 }}
-          >
+          <p className="font-jakarta mb-10 max-w-prose text-base leading-[1.65] font-normal text-[oklch(68%_0.02_285)] sm:text-[19px] lg:max-w-[460px]">
             {t('subheadline')}
           </p>
 
           <div className="flex flex-col gap-5">
             {/* CTA row */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
               <Link
                 href="/signup"
                 className="rounded-pill bg-brand font-syne px-9 py-[17px] text-[17px] font-bold text-white shadow-[0_8px_32px_oklch(62%_0.28_285_/_0.6)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_44px_oklch(62%_0.28_285_/_0.7)]"
@@ -184,7 +181,7 @@ export default async function Hero() {
             </div>
 
             {/* Social proof */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center gap-4 lg:justify-start">
               <div className="flex" aria-hidden="true">
                 {avatarColors.map((c, i) => (
                   <div
@@ -201,8 +198,8 @@ export default async function Hero() {
           </div>
         </div>
 
-        {/* Phone */}
-        <div className="flex flex-shrink-0 justify-center pr-8">
+        {/* Phone — hidden on mobile (visitor IS on a phone) */}
+        <div className="hidden flex-shrink-0 justify-center pr-8 lg:flex">
           <PhoneMockup />
         </div>
       </div>

@@ -16,8 +16,7 @@ type Profile = {
   tags: string[];
 };
 
-// TODO: replace with real Prisma query once acquisition_number column is added.
-// ALTER TABLE pages ADD COLUMN acquisition_number SERIAL UNIQUE (assigned on first publish).
+// TODO(#40): replace with real Prisma query once acquisition_number column is added.
 const PROFILES: Profile[] = [
   {
     n: 1,
@@ -195,7 +194,7 @@ export default function CatalogGrid() {
   return (
     <div className="min-h-screen bg-[oklch(97%_0.004_285)] pt-[68px]">
       {/* Page header */}
-      <div className="border-border border-b bg-white px-7 pt-11 pb-7">
+      <div className="border-border border-b bg-white px-5 pt-11 pb-7 sm:px-7">
         <div className="mx-auto max-w-screen-xl">
           <h1
             className="font-syne text-dark mb-1.5 font-extrabold tracking-[-1px]"
@@ -225,7 +224,7 @@ export default function CatalogGrid() {
       </div>
 
       {/* Tag filter */}
-      <div className="border-border overflow-x-auto border-b bg-white px-7 py-3">
+      <div className="border-border overflow-x-auto border-b bg-white px-5 py-3 sm:px-7">
         <div className="mx-auto flex max-w-screen-xl gap-2">
           {ALL_TAGS.map((tag) => (
             <button
@@ -245,7 +244,7 @@ export default function CatalogGrid() {
       </div>
 
       {/* Demo notice */}
-      <div className="border-border border-b bg-[oklch(98%_0.008_88)] px-7 py-2.5">
+      <div className="border-border border-b bg-[oklch(98%_0.008_88)] px-5 py-2.5 sm:px-7">
         <div className="mx-auto max-w-screen-xl">
           <p className="font-jakarta text-[12px] text-[oklch(55%_0.08_88)]">
             {t('demoNotice')}
@@ -254,7 +253,7 @@ export default function CatalogGrid() {
       </div>
 
       {/* Result count + list */}
-      <div className="mx-auto max-w-screen-xl px-7 pt-9 pb-16">
+      <div className="mx-auto max-w-screen-xl px-4 pt-9 pb-16 sm:px-7">
         <p className="font-jakarta text-mid mb-6 text-sm">
           {resultLabel}
           {activeTag !== TAG_ALL ? (
@@ -277,31 +276,34 @@ export default function CatalogGrid() {
               <li
                 key={u.handle}
                 className={[
-                  'grid items-center gap-4 px-5 py-3.5 transition-colors duration-150 hover:bg-[oklch(98%_0.005_285)]',
+                  'flex flex-col gap-2 px-4 py-4 transition-colors duration-150 hover:bg-[oklch(98%_0.005_285)] sm:grid sm:items-center sm:gap-4 sm:px-5 sm:py-3.5',
                   i === 0 ? '' : 'border-border border-t',
                 ].join(' ')}
                 style={{ gridTemplateColumns: '64px 44px 1fr auto' }}
               >
-                {/* Acquisition number */}
-                <span
-                  className={[
-                    'font-syne text-[22px] font-extrabold tracking-[-0.5px] tabular-nums',
-                    u.n <= 3 ? 'text-brand' : 'text-[oklch(70%_0.02_285)]',
-                  ].join(' ')}
-                >
-                  #{String(u.n).padStart(2, '0')}
-                </span>
+                {/* Mobile: number + avatar inline; desktop: separate grid cells */}
+                <div className="flex items-center gap-3 sm:contents">
+                  {/* Acquisition number */}
+                  <span
+                    className={[
+                      'font-syne text-[20px] font-extrabold tracking-[-0.5px] tabular-nums sm:text-[22px]',
+                      u.n <= 3 ? 'text-brand' : 'text-[oklch(70%_0.02_285)]',
+                    ].join(' ')}
+                  >
+                    #{String(u.n).padStart(2, '0')}
+                  </span>
 
-                {/* Avatar */}
-                <span
-                  className="font-syne flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold text-white"
-                  style={{
-                    background: u.color,
-                    boxShadow: `0 1px 6px ${u.color}40`,
-                  }}
-                >
-                  {u.initial}
-                </span>
+                  {/* Avatar */}
+                  <span
+                    className="font-syne flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
+                    style={{
+                      background: u.color,
+                      boxShadow: `0 1px 6px ${u.color}40`,
+                    }}
+                  >
+                    {u.initial}
+                  </span>
+                </div>
 
                 {/* Name + handle + bio */}
                 <div className="min-w-0">
