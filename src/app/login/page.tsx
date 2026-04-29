@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
 import GoogleIcon from '@/components/icons/GoogleIcon';
+import { SubmitButton } from '@/components/SubmitButton';
 
 import { signInWithGoogle, signInWithPassword } from './actions';
 
@@ -63,12 +64,12 @@ export default async function LoginPage({
             className="rounded border border-gray-300 px-3 py-2"
           />
         </label>
-        <button
-          type="submit"
-          className="rounded bg-black px-3 py-2 text-sm font-medium text-white hover:bg-gray-800"
+        <SubmitButton
+          pendingLabel={t('submitting')}
+          className="rounded bg-black px-3 py-2 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-60"
         >
           {t('submit')}
-        </button>
+        </SubmitButton>
       </form>
 
       <div className="flex items-center gap-3 text-xs text-gray-500">
@@ -78,13 +79,13 @@ export default async function LoginPage({
       </div>
 
       <form action={signInWithGoogle}>
-        <button
-          type="submit"
-          className="flex w-full items-center justify-center gap-3 rounded border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50"
+        <SubmitButton
+          pendingLabel={t('signingInWithGoogle')}
+          className="flex w-full items-center justify-center gap-3 rounded border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50 disabled:opacity-60"
         >
           <GoogleIcon />
           {t('continueWithGoogle')}
-        </button>
+        </SubmitButton>
       </form>
     </main>
   );
