@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useRef, useState, useEffect, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -16,14 +16,33 @@ const PRIVATE_PREFIXES = [
   '/go',
 ];
 
+// useSyncExternalStore lets React reconcile the server/client snapshots
+// without throwing a hydration error. The server snapshot always returns
+// 'undetermined' so the banner is hidden during SSR; the client snapshot
+// reads the real cookie value after hydration.
+function subscribeToNothing() {
+  return () => {};
+}
+function getClientSnapshot() {
+  return readConsent();
+}
+function getServerSnapshot() {
+  return 'undetermined' as const;
+}
+
 export function ConsentBanner() {
   const pathname = usePathname();
   const t = useTranslations('Consent');
-  const [visible, setVisible] = useState(() => {
-    if (typeof document === 'undefined') return false;
-    return readConsent() === null;
-  });
+
+  const consentValue = useSyncExternalStore(
+    subscribeToNothing,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
+  const [dismissed, setDismissed] = useState(false);
   const firstButtonRef = useRef<HTMLButtonElement>(null);
+
+  const visible = !dismissed && consentValue === null;
 
   useEffect(() => {
     if (visible) firstButtonRef.current?.focus();
@@ -34,7 +53,7 @@ export function ConsentBanner() {
 
   function handleChoice(value: 'granted' | 'denied') {
     setConsent(value);
-    setVisible(false);
+    setDismissed(true);
   }
 
   return (

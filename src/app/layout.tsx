@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Syne, Plus_Jakarta_Sans } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import './globals.css';
@@ -16,25 +16,38 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const syne = Syne({
+  variable: '--font-syne-var',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: '--font-jakarta-var',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+});
+
 export const metadata: Metadata = {
   title: {
-    default: 'LookThisOne — Your link in bio, your identity',
-    template: '%s · LookThisOne',
+    default: 'LookThis.One — Tu link. Tu marca. Tu mundo.',
+    template: '%s · LookThis.One',
   },
-  description: 'A link-in-bio tool built around your identity.',
+  description: 'Tu link-in-bio personal. Una página, todo lo que tienes.',
   metadataBase: new URL('https://lookthis.one'),
   openGraph: {
-    title: 'LookThisOne — Your link in bio, your identity',
-    description: 'A link-in-bio tool built around your identity.',
+    title: 'LookThis.One — Tu link. Tu marca. Tu mundo.',
+    description: 'Tu link. Tu marca. Tu mundo.',
     url: 'https://lookthis.one',
-    siteName: 'LookThisOne',
-    locale: 'en_US',
+    siteName: 'LookThis.One',
+    locale: 'es_ES',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LookThisOne — Your link in bio, your identity',
-    description: 'A link-in-bio tool built around your identity.',
+    title: 'LookThis.One — Tu link. Tu marca. Tu mundo.',
+    description: 'Tu link. Tu marca. Tu mundo.',
   },
 };
 
@@ -48,7 +61,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
