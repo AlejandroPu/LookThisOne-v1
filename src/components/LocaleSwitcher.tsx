@@ -48,6 +48,7 @@ export function LocaleSwitcher({ variant = 'light' }: { variant?: Variant }) {
         onClick={() => handleChange('en')}
         disabled={locale === 'en' || isPending}
         aria-label="English"
+        aria-pressed={locale === 'en'}
         className={locale === 'en' ? activeClass : inactiveClass}
       >
         EN
@@ -59,6 +60,7 @@ export function LocaleSwitcher({ variant = 'light' }: { variant?: Variant }) {
         onClick={() => handleChange('es')}
         disabled={locale === 'es' || isPending}
         aria-label="Español"
+        aria-pressed={locale === 'es'}
         className={locale === 'es' ? activeClass : inactiveClass}
       >
         ES

@@ -56,7 +56,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
         </Link>
 
         {/* Nav */}
-        <nav className="flex items-center gap-1">
+        <nav aria-label="Main navigation" className="flex items-center gap-1">
           <Link
             href="/"
             className={[

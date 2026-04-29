@@ -115,7 +115,7 @@ export default function TermsPage() {
             href="/"
             className="font-jakarta text-brand mt-12 inline-block text-sm hover:underline"
           >
-            ← Back to home
+            <span aria-hidden="true">←</span> Back to home
           </Link>
         </div>
       </main>
