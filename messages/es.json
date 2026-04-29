@@ -118,7 +118,7 @@
     "continueWithGoogle": "Continuar con Google"
   },
   "Signup": {
-    "title": "Crear una cuenta",
+    "title": "CREAR una cuenta",
     "alreadyHaveOne": "¿Ya tienes una?",
     "signIn": "INICIA sesión",
     "betaTitle": "Versión beta.",
@@ -126,7 +126,7 @@
     "email": "Correo electrónico",
     "password": "Contraseña",
     "passwordHint": "Mínimo 8 caracteres.",
-    "submit": "CREAR cuenta",
+    "submit": "Crear cuenta",
     "or": "o",
     "continueWithGoogle": "Continuar con Google",
     "checkInbox": "Revisa tu bandeja de entrada para confirmar tu dirección de correo."

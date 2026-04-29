@@ -118,9 +118,9 @@
     "continueWithGoogle": "Continue with Google"
   },
   "Signup": {
-    "title": "Create an account",
+    "title": "CREATE an account",
     "alreadyHaveOne": "Already have one?",
-    "signIn": "Sign in",
+    "signIn": "SIGN IN",
     "betaTitle": "Beta preview.",
     "betaBody": "LookThisOne is under active development. Accounts created during the beta may be reset when the stable version launches.",
     "email": "Email",
