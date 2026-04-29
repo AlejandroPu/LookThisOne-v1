@@ -196,7 +196,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
           <div
             className="fixed inset-0 z-40 md:hidden"
             aria-hidden="true"
-            onClick={() => setMenuOpen(false)}
+            onClick={closeMenu}
           />
 
           {/* Menu panel */}
