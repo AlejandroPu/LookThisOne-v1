@@ -57,6 +57,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
 
         {/* Nav */}
         <nav aria-label="Main navigation" className="flex items-center gap-1">
+          {/* TODO(#41): add hamburger/drawer for mobile nav */}
           <Link
             href="/"
             className={[

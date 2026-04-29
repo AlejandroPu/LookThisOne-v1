@@ -16,8 +16,7 @@ type Profile = {
   tags: string[];
 };
 
-// TODO: replace with real Prisma query once acquisition_number column is added.
-// ALTER TABLE pages ADD COLUMN acquisition_number SERIAL UNIQUE (assigned on first publish).
+// TODO(#40): replace with real Prisma query once acquisition_number column is added.
 const PROFILES: Profile[] = [
   {
     n: 1,
@@ -195,7 +194,7 @@ export default function CatalogGrid() {
   return (
     <div className="min-h-screen bg-[oklch(97%_0.004_285)] pt-[68px]">
       {/* Page header */}
-      <div className="border-border border-b bg-white px-7 pt-11 pb-7">
+      <div className="border-border border-b bg-white px-5 pt-11 pb-7 sm:px-7">
         <div className="mx-auto max-w-screen-xl">
           <h1
             className="font-syne text-dark mb-1.5 font-extrabold tracking-[-1px]"
@@ -225,7 +224,7 @@ export default function CatalogGrid() {
       </div>
 
       {/* Tag filter */}
-      <div className="border-border overflow-x-auto border-b bg-white px-7 py-3">
+      <div className="border-border overflow-x-auto border-b bg-white px-5 py-3 sm:px-7">
         <div className="mx-auto flex max-w-screen-xl gap-2">
           {ALL_TAGS.map((tag) => (
             <button
@@ -245,7 +244,7 @@ export default function CatalogGrid() {
       </div>
 
       {/* Demo notice */}
-      <div className="border-border border-b bg-[oklch(98%_0.008_88)] px-7 py-2.5">
+      <div className="border-border border-b bg-[oklch(98%_0.008_88)] px-5 py-2.5 sm:px-7">
         <div className="mx-auto max-w-screen-xl">
           <p className="font-jakarta text-[12px] text-[oklch(55%_0.08_88)]">
             {t('demoNotice')}
