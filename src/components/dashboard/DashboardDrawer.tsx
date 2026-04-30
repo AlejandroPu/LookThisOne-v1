@@ -7,8 +7,10 @@ import {
   useRef,
   type ReactNode,
 } from 'react';
+import { DrawerCloseContext } from './DrawerContext';
 
 type Props = {
+  title: string;
   menuLabel: string;
   children: ReactNode;
 };
@@ -51,7 +53,7 @@ function CloseIcon() {
   );
 }
 
-export function DashboardDrawer({ menuLabel, children }: Props) {
+export function DashboardDrawer({ title, menuLabel, children }: Props) {
   const [open, setOpen] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
 
@@ -63,18 +65,47 @@ export function DashboardDrawer({ menuLabel, children }: Props) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close();
+      if (e.key === 'Escape') {
+        close();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const drawer = document.getElementById('dashboard-drawer');
+      const focusable = Array.from(
+        drawer?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [open, close]);
+
+  useEffect(() => {
+    if (!open) return;
+    const drawer = document.getElementById('dashboard-drawer');
+    const first = drawer?.querySelector<HTMLElement>(
+      'a[href], button:not([disabled])',
+    );
+    first?.focus();
+  }, [open]);
 
   return (
     <>
       {/* Mobile top bar */}
       <div className="border-border bg-dark fixed top-0 right-0 left-0 z-50 flex h-14 items-center justify-between border-b border-white/10 px-4 md:hidden">
         <span className="font-syne text-off-white text-[17px] font-extrabold tracking-tight">
-          Dashboard
+          {title}
         </span>
         <button
           ref={btnRef}
@@ -102,9 +133,14 @@ export function DashboardDrawer({ menuLabel, children }: Props) {
           />
           <aside
             id="dashboard-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label={menuLabel}
             className="bg-dark fixed top-0 left-0 z-50 flex h-full w-64 flex-col shadow-2xl md:hidden"
           >
-            {children}
+            <DrawerCloseContext.Provider value={close}>
+              {children}
+            </DrawerCloseContext.Provider>
           </aside>
         </>
       )}

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { useDrawerClose } from './DrawerContext';
 
 const NAV_ITEMS = [
   { href: '/dashboard', key: 'overview' },
@@ -13,11 +14,10 @@ const NAV_ITEMS = [
   { href: '/dashboard/settings', key: 'settings' },
 ] as const;
 
-type Props = { onNavigate?: () => void };
-
-export function DashboardNav({ onNavigate }: Props) {
+export function DashboardNav() {
   const pathname = usePathname();
   const t = useTranslations('Dashboard.nav');
+  const closeDrawer = useDrawerClose();
 
   return (
     <nav className="flex flex-col gap-0.5 px-3">
@@ -30,7 +30,7 @@ export function DashboardNav({ onNavigate }: Props) {
           <Link
             key={href}
             href={href}
-            onClick={onNavigate}
+            onClick={closeDrawer ?? undefined}
             className={[
               'font-jakarta rounded-lg px-3 py-2.5 text-[14px] font-medium transition-colors duration-150',
               isActive

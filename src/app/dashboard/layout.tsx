@@ -13,7 +13,7 @@ export default async function DashboardLayout({
   children: ReactNode;
 }) {
   const { user, page } = await requirePage();
-  const t = await getTranslations('Dashboard.nav');
+  const t = await getTranslations('Dashboard');
 
   const sidebarProps = { email: user.email ?? '', username: page.username };
 
@@ -25,7 +25,7 @@ export default async function DashboardLayout({
       </aside>
 
       {/* Mobile drawer */}
-      <DashboardDrawer menuLabel={t('menuLabel')}>
+      <DashboardDrawer title={t('title')} menuLabel={t('nav.menuLabel')}>
         <DashboardSidebar {...sidebarProps} />
       </DashboardDrawer>
 

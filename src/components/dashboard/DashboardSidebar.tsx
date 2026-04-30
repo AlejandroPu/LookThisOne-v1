@@ -7,10 +7,9 @@ import { DashboardNav } from './DashboardNav';
 type Props = {
   email: string;
   username: string;
-  onNavigate?: () => void;
 };
 
-export async function DashboardSidebar({ email, username, onNavigate }: Props) {
+export async function DashboardSidebar({ email, username }: Props) {
   const t = await getTranslations('Dashboard');
 
   return (
@@ -33,7 +32,7 @@ export async function DashboardSidebar({ email, username, onNavigate }: Props) {
 
       {/* Nav */}
       <div className="flex-1 overflow-y-auto pb-4">
-        <DashboardNav onNavigate={onNavigate} />
+        <DashboardNav />
       </div>
 
       {/* Footer */}
