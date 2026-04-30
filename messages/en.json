@@ -31,7 +31,8 @@
       "heading2": "in one link",
       "body": "is your personal page on the internet. Add all your links — social networks, store, portfolio, blog, podcast — and share one URL in your bio. Simple, fast, and with an aesthetic that makes you stand out.",
       "urlLabel": "Your personalised link:",
-      "urlHandle": "yourusername"
+      "urlHandle": "yourusername",
+      "urlHandleMobile": "username"
     },
     "stats": {
       "stat1n": "USD$37",

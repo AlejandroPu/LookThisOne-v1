@@ -31,7 +31,8 @@
       "heading2": "en un solo enlace",
       "body": "es tu página personal en internet. Agrega todos tus links — redes sociales, tienda, portafolio, blog, podcast — y comparte una sola URL en tu bio. Simple, rápido y con una estética que te hace destacar.",
       "urlLabel": "Tu enlace personalizado:",
-      "urlHandle": "tuusuario"
+      "urlHandle": "tuusuario",
+      "urlHandleMobile": "usuario"
     },
     "stats": {
       "stat1n": "USD$37",
