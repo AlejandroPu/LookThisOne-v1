@@ -48,7 +48,7 @@ export default async function LandingPage() {
 
                 <h2
                   className="font-syne text-dark mb-6 leading-[1.1] font-extrabold tracking-[-1.2px]"
-                  style={{ fontSize: 'clamp(34px, 3.8vw, 52px)' }}
+                  style={{ fontSize: 'clamp(22px, 3.8vw, 52px)' }}
                 >
                   {t('about.heading1')}
                   <br />

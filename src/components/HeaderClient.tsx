@@ -202,7 +202,7 @@ export default function HeaderClient({ isLoggedIn, labels }: Props) {
           {/* Menu panel */}
           <div
             id="mobile-menu"
-            className="border-border bg-off-white/98 fixed top-[68px] right-0 left-0 z-[45] border-b shadow-lg backdrop-blur-lg md:hidden"
+            className="border-border bg-off-white/98 fixed top-[68px] right-0 z-[45] w-[min(280px,calc(100vw-1.25rem))] rounded-bl-xl border-b border-l shadow-lg backdrop-blur-lg md:hidden"
           >
             <nav
               aria-label="Mobile navigation"

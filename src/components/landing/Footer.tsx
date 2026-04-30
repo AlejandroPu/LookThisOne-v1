@@ -85,7 +85,7 @@ export default async function Footer() {
             <BrandName baseClass="text-[oklch(38%_0.02_285)]" />{' '}
             {t('copyrightAfter')}
           </p>
-          <LocaleSwitcher />
+          <LocaleSwitcher variant="dark" />
         </div>
       </div>
     </footer>
