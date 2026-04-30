@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import BrandName from '@/components/BrandName';
@@ -208,10 +209,11 @@ export default function CatalogGrid({ profiles }: Props) {
 
                         {/* Avatar */}
                         {u.avatarUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
+                          <Image
                             src={u.avatarUrl}
                             alt={u.name}
+                            width={36}
+                            height={36}
                             className="h-9 w-9 flex-shrink-0 rounded-full object-cover"
                             style={{ boxShadow: `0 1px 6px ${color}40` }}
                           />
