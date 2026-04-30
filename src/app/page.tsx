@@ -70,7 +70,14 @@ export default async function LandingPage() {
                   <span className="bg-brand h-2 w-2 flex-shrink-0 rounded-full" />
                   <span className="font-syne text-brand-dark text-lg font-bold tracking-tight">
                     <BrandName baseClass="text-brand-dark" />/
-                    <span className="text-brand">{t('about.urlHandle')}</span>
+                    <span className="text-brand">
+                      <span className="sm:hidden">
+                        {t('about.urlHandleMobile')}
+                      </span>
+                      <span className="hidden sm:inline">
+                        {t('about.urlHandle')}
+                      </span>
+                    </span>
                   </span>
                 </div>
 
