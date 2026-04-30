@@ -13,24 +13,24 @@ export async function togglePublish() {
   const newPublished = !page.published;
 
   await prisma.$transaction(async (tx) => {
-    let acquisitionNumber = page.acquisitionNumber;
-
-    if (newPublished && acquisitionNumber === null) {
+    if (newPublished && page.acquisitionNumber === null) {
       const [row] = await tx.$queryRaw<{ next: bigint }[]>`
         SELECT nextval('acquisition_number_seq') AS next
       `;
-      acquisitionNumber = Number(row.next);
+      const acquisitionNumber = Number(row.next);
+      // updateMany with acquisitionNumber: null is an atomic guard: if a
+      // concurrent request already assigned the number, count will be 0
+      // and we treat it as a no-op (page is already published).
+      await tx.page.updateMany({
+        where: { id: page.id, acquisitionNumber: null },
+        data: { published: true, acquisitionNumber },
+      });
+    } else {
+      await tx.page.update({
+        where: { id: page.id },
+        data: { published: newPublished },
+      });
     }
-
-    await tx.page.update({
-      where: { id: page.id },
-      data: {
-        published: newPublished,
-        ...(acquisitionNumber !== page.acquisitionNumber && {
-          acquisitionNumber,
-        }),
-      },
-    });
   });
 
   revalidatePath('/dashboard');

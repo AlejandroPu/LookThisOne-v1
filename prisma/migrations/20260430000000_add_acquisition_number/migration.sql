@@ -7,3 +7,7 @@ CREATE SEQUENCE IF NOT EXISTS acquisition_number_seq
 
 ALTER TABLE pages
   ADD COLUMN acquisition_number INT UNIQUE;
+
+-- Ownership ensures the sequence is dropped automatically if the column is
+-- ever removed in a future migration (clean pg_dump behaviour).
+ALTER SEQUENCE acquisition_number_seq OWNED BY pages.acquisition_number;
