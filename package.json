@@ -15,6 +15,7 @@
     "prisma:deploy": "dotenv -e .env.local -- prisma migrate deploy",
     "prisma:studio": "dotenv -e .env.local -- prisma studio",
     "prisma:generate": "prisma generate",
+    "seed:demo": "dotenv -e .env.local -- tsx prisma/seed-demo.ts",
     "prepare": "husky"
   },
   "dependencies": {
@@ -48,6 +49,7 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "prisma": "^7.7.0",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

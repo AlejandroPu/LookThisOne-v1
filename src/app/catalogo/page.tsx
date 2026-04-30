@@ -16,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CatalogoPage() {
+  // v2: add isDemo: false once real users fill the catalog and demo rows are cleaned up.
   const pages = await prisma.page.findMany({
     where: {
       published: true,

@@ -66,6 +66,7 @@ model Page {
   themeId     String?  @map("theme_id") @db.Uuid
   published         Boolean @default(false)
   acquisitionNumber Int?    @unique @map("acquisition_number")
+  isDemo            Boolean @default(false) @map("is_demo")
   createdAt         DateTime @default(now()) @map("created_at")
   updatedAt         DateTime @updatedAt @map("updated_at")
 
