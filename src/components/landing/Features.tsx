@@ -33,7 +33,7 @@ export default async function Features() {
           </div>
           <h2
             className="font-syne leading-[1.1] font-extrabold tracking-[-1.2px] text-white"
-            style={{ fontSize: 'clamp(34px, 3.8vw, 52px)' }}
+            style={{ fontSize: 'clamp(22px, 3.8vw, 52px)' }}
           >
             {t('heading')}
           </h2>

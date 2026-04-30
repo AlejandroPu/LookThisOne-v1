@@ -22,7 +22,7 @@ export default async function HowItWorks() {
           </div>
           <h2
             className="font-syne font-extrabold tracking-[-1.2px] text-white"
-            style={{ fontSize: 'clamp(34px, 3.8vw, 52px)' }}
+            style={{ fontSize: 'clamp(22px, 3.8vw, 52px)' }}
           >
             {t('heading')}
           </h2>
