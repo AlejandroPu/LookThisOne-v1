@@ -4,6 +4,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 import { prisma } from '@/lib/prisma';
+import { TrackedLink } from '@/components/TrackedLink';
 
 import { ViewTracker } from './ViewTracker';
 
@@ -92,15 +93,14 @@ export default async function ProfilePage({ params }: { params: Params }) {
           <ul className="mt-8 w-full space-y-3">
             {page.links.map((link) => (
               <li key={link.id}>
-                <a
-                  href={`/go/${link.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <TrackedLink
+                  href={link.url}
+                  linkId={link.id}
                   className="block w-full rounded-xl border py-4 text-center font-medium transition hover:scale-[1.02]"
                   style={{ borderColor: accent }}
                 >
                   {link.title}
-                </a>
+                </TrackedLink>
               </li>
             ))}
           </ul>
