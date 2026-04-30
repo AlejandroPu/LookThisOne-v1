@@ -64,9 +64,10 @@ model Page {
   bio         String?
   avatarUrl   String?  @map("avatar_url")
   themeId     String?  @map("theme_id") @db.Uuid
-  published   Boolean  @default(false)
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+  published         Boolean @default(false)
+  acquisitionNumber Int?    @unique @map("acquisition_number")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
 
   workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
   theme     Theme?    @relation(fields: [themeId], references: [id], onDelete: SetNull)
