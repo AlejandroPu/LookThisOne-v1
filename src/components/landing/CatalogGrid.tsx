@@ -259,6 +259,8 @@ export default function CatalogGrid({ profiles }: Props) {
                         )}
                         <Link
                           href={`/${u.handle}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="font-jakarta text-brand text-[13px] font-semibold whitespace-nowrap transition-opacity duration-200 hover:opacity-70"
                         >
                           {t('viewProfile')}
