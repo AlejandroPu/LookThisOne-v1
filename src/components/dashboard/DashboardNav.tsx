@@ -20,7 +20,7 @@ export function DashboardNav() {
   const closeDrawer = useDrawerClose();
 
   return (
-    <nav className="flex flex-col gap-0.5 px-3">
+    <nav aria-label={t('navLabel')} className="flex flex-col gap-0.5 px-3">
       {NAV_ITEMS.map(({ href, key }) => {
         const isActive =
           href === '/dashboard'

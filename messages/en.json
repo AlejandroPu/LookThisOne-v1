@@ -158,7 +158,9 @@
       "theme": "Theme",
       "analytics": "Analytics",
       "settings": "Settings",
-      "menuLabel": "Open menu"
+      "menuLabel": "Open menu",
+      "drawerLabel": "Navigation",
+      "navLabel": "Main navigation"
     },
     "signedInAs": "Signed in as",
     "settings": "Settings",

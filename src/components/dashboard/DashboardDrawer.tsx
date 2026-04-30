@@ -12,6 +12,7 @@ import { DrawerCloseContext } from './DrawerContext';
 type Props = {
   title: string;
   menuLabel: string;
+  drawerLabel: string;
   children: ReactNode;
 };
 
@@ -53,7 +54,12 @@ function CloseIcon() {
   );
 }
 
-export function DashboardDrawer({ title, menuLabel, children }: Props) {
+export function DashboardDrawer({
+  title,
+  menuLabel,
+  drawerLabel,
+  children,
+}: Props) {
   const [open, setOpen] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
 
@@ -135,7 +141,7 @@ export function DashboardDrawer({ title, menuLabel, children }: Props) {
             id="dashboard-drawer"
             role="dialog"
             aria-modal="true"
-            aria-label={menuLabel}
+            aria-label={drawerLabel}
             className="bg-dark fixed top-0 left-0 z-50 flex h-full w-64 flex-col shadow-2xl md:hidden"
           >
             <DrawerCloseContext.Provider value={close}>

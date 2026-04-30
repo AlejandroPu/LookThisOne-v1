@@ -25,7 +25,11 @@ export default async function DashboardLayout({
       </aside>
 
       {/* Mobile drawer */}
-      <DashboardDrawer title={t('title')} menuLabel={t('nav.menuLabel')}>
+      <DashboardDrawer
+        title={t('title')}
+        menuLabel={t('nav.menuLabel')}
+        drawerLabel={t('nav.drawerLabel')}
+      >
         <DashboardSidebar {...sidebarProps} />
       </DashboardDrawer>
 
