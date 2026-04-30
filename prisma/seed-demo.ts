@@ -11,8 +11,7 @@
  * All rows are tagged with is_demo=true so they can be cleanly removed when
  * real user profiles fill the catalog in v2.
  *
- * Avatars use DiceBear Initials (no upload required). To use them in
- * production, add api.dicebear.com to next.config.ts → images.remotePatterns.
+ * Avatars are served from public/avatars/ (01.png–15.png), assigned in order.
  */
 
 import { PrismaClient } from '@prisma/client';
@@ -25,8 +24,8 @@ function demoEmail(slug: string) {
   return `demo+${slug}@lookthis.one`;
 }
 
-function dicebearUrl(seed: string) {
-  return `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(seed)}`;
+function avatarPath(index: number) {
+  return `/avatars/${String(index + 1).padStart(2, '0')}.png`;
 }
 
 const DEMO_PROFILES = [
@@ -204,9 +203,9 @@ async function nextAcquisitionNumber(
 async function main() {
   console.log(`Seeding ${DEMO_PROFILES.length} demo profiles…`);
 
-  for (const profile of DEMO_PROFILES) {
+  for (const [i, profile] of DEMO_PROFILES.entries()) {
     const email = demoEmail(profile.username);
-    const avatarUrl = dicebearUrl(profile.username);
+    const avatarUrl = avatarPath(i);
 
     await prisma.$transaction(async (tx) => {
       // Upsert user (no auth.users row — demo accounts can't log in)
