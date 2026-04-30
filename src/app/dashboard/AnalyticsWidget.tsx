@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-
 import { prisma } from '@/lib/prisma';
 
 type Link = { id: string; title: string };
@@ -15,11 +14,13 @@ export async function AnalyticsWidget({ pageId, published, links }: Props) {
 
   if (!published) {
     return (
-      <section className="mt-8 rounded border border-gray-200 p-6">
-        <h2 className="mb-4 text-sm font-medium text-gray-500">
+      <section className="rounded-card border-border border bg-white p-6">
+        <h2 className="font-jakarta text-mid mb-3 text-sm font-semibold tracking-wide uppercase">
           {t('analyticsHeading')}
         </h2>
-        <p className="text-sm text-gray-400">{t('analyticsUnpublished')}</p>
+        <p className="font-jakarta text-mid text-sm">
+          {t('analyticsUnpublished')}
+        </p>
       </section>
     );
   }
@@ -47,26 +48,30 @@ export async function AnalyticsWidget({ pageId, published, links }: Props) {
   const hasData = views > 0 || clicks > 0;
 
   return (
-    <section className="mt-8 rounded border border-gray-200 p-6">
-      <h2 className="mb-4 text-sm font-medium text-gray-500">
+    <section className="rounded-card border-border border bg-white p-6">
+      <h2 className="font-jakarta text-mid mb-4 text-sm font-semibold tracking-wide uppercase">
         {t('analyticsHeading')}
       </h2>
 
       {!hasData ? (
-        <p className="text-sm text-gray-400">{t('analyticsNoData')}</p>
+        <p className="font-jakarta text-mid text-sm">{t('analyticsNoData')}</p>
       ) : (
         <div className="space-y-6">
           {/* Summary row */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded border border-gray-100 bg-gray-50 px-4 py-3">
-              <p className="text-xs text-gray-500">{t('analyticsViews')}</p>
-              <p className="mt-1 text-2xl font-semibold tabular-nums">
+            <div className="rounded-card border-border bg-off-white border px-4 py-3">
+              <p className="font-jakarta text-mid text-xs">
+                {t('analyticsViews')}
+              </p>
+              <p className="font-syne text-dark mt-1 text-2xl font-extrabold tabular-nums">
                 {views.toLocaleString()}
               </p>
             </div>
-            <div className="rounded border border-gray-100 bg-gray-50 px-4 py-3">
-              <p className="text-xs text-gray-500">{t('analyticsClicks')}</p>
-              <p className="mt-1 text-2xl font-semibold tabular-nums">
+            <div className="rounded-card border-border bg-off-white border px-4 py-3">
+              <p className="font-jakarta text-mid text-xs">
+                {t('analyticsClicks')}
+              </p>
+              <p className="font-syne text-dark mt-1 text-2xl font-extrabold tabular-nums">
                 {clicks.toLocaleString()}
               </p>
             </div>
@@ -75,31 +80,31 @@ export async function AnalyticsWidget({ pageId, published, links }: Props) {
           {/* Per-link breakdown */}
           {links.length > 0 && (
             <div>
-              <p className="mb-2 text-xs font-medium text-gray-500">
+              <p className="font-jakarta text-mid mb-2 text-xs font-semibold tracking-wide uppercase">
                 {t('analyticsClicksPerLink')}
               </p>
-              <ul className="divide-y divide-gray-100 rounded border border-gray-100">
+              <ul className="border-border divide-border divide-y overflow-hidden rounded-xl border">
                 {links.map((link) => {
                   const count = clicksByLinkId[link.id] ?? 0;
                   const pct = clicks > 0 ? (count / clicks) * 100 : 0;
                   return (
                     <li
                       key={link.id}
-                      className="flex items-center justify-between gap-4 px-4 py-2.5 text-sm"
+                      className="flex items-center justify-between gap-4 bg-white px-4 py-2.5 text-sm"
                     >
-                      <span className="min-w-0 truncate text-gray-700">
+                      <span className="font-jakarta text-dark min-w-0 truncate">
                         {link.title}
                       </span>
                       <div className="flex shrink-0 items-center gap-3">
                         {clicks > 0 && (
-                          <div className="h-1.5 w-16 overflow-hidden rounded-full bg-gray-100">
+                          <div className="border-border h-1.5 w-16 overflow-hidden rounded-full bg-[oklch(93%_0.005_285)]">
                             <div
-                              className="h-full rounded-full bg-gray-400"
+                              className="bg-brand h-full rounded-full"
                               style={{ width: `${pct}%` }}
                             />
                           </div>
                         )}
-                        <span className="w-8 text-right text-gray-500 tabular-nums">
+                        <span className="font-jakarta text-mid w-8 text-right tabular-nums">
                           {count}
                         </span>
                       </div>

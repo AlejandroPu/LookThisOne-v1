@@ -151,6 +151,15 @@
   },
   "Dashboard": {
     "title": "Dashboard",
+    "nav": {
+      "overview": "Overview",
+      "profile": "Profile",
+      "links": "Links",
+      "theme": "Theme",
+      "analytics": "Analytics",
+      "settings": "Settings",
+      "menuLabel": "Open menu"
+    },
     "signedInAs": "Signed in as",
     "settings": "Settings",
     "signOut": "Sign out",

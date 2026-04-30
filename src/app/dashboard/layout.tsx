@@ -1,10 +1,36 @@
 import type { ReactNode } from 'react';
+import { getTranslations } from 'next-intl/server';
+import { requirePage } from '@/lib/auth/dal';
+import { DashboardSidebar } from '@/components/dashboard/DashboardSidebar';
+import { DashboardDrawer } from '@/components/dashboard/DashboardDrawer';
 
-// Structural only. Auth and onboarding gating live in the page (via the DAL),
-// because Next 16 layouts do not re-render on client-side navigation and
-// render in parallel with their pages on initial load — neither property is
-// compatible with using them as an auth gate.
-// See src/lib/auth/dal.ts for details.
-export default function DashboardLayout({ children }: { children: ReactNode }) {
-  return <>{children}</>;
+// Auth and onboarding gating live in each page (via the DAL). This layout
+// calls requirePage() only to supply display data (email, username) to the
+// sidebar. Each page independently re-verifies the session.
+export default async function DashboardLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const { user, page } = await requirePage();
+  const t = await getTranslations('Dashboard.nav');
+
+  const sidebarProps = { email: user.email ?? '', username: page.username };
+
+  return (
+    <div className="flex min-h-screen">
+      {/* Desktop sidebar */}
+      <aside className="bg-dark hidden w-60 flex-shrink-0 flex-col md:flex">
+        <DashboardSidebar {...sidebarProps} />
+      </aside>
+
+      {/* Mobile drawer */}
+      <DashboardDrawer menuLabel={t('menuLabel')}>
+        <DashboardSidebar {...sidebarProps} />
+      </DashboardDrawer>
+
+      {/* Main content area */}
+      <div className="bg-off-white min-w-0 flex-1">{children}</div>
+    </div>
+  );
 }
