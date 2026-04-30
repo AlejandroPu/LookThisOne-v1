@@ -107,7 +107,9 @@
     "noResultsHint": "Try a different term or category",
     "viewProfile": "View →",
     "tagAll": "all",
-    "demoNotice": "Sample profiles — real profiles will appear here once the Catalog is live."
+    "emptyHeading": "No profiles yet",
+    "emptyBody": "Be among the first to publish your page.",
+    "emptyCta": "Create your page"
   },
   "Login": {
     "title": "Sign in",

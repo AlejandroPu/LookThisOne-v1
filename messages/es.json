@@ -107,7 +107,9 @@
     "noResultsHint": "Prueba con otro término o categoría",
     "viewProfile": "Ver →",
     "tagAll": "todos",
-    "demoNotice": "Perfiles de ejemplo — los perfiles reales aparecerán aquí cuando el Catálogo esté activo."
+    "emptyHeading": "Aún no hay perfiles",
+    "emptyBody": "Sé de los primeros en publicar tu página.",
+    "emptyCta": "Crea tu página"
   },
   "Login": {
     "title": "Iniciar sesión",
