@@ -15,6 +15,8 @@ export function TrackedLink({
   className,
   style,
 }: Props) {
+  if (!href.startsWith('http://') && !href.startsWith('https://')) return null;
+
   function track() {
     const data = new FormData();
     data.append('linkId', linkId);
