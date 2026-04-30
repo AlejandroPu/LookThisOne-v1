@@ -151,6 +151,17 @@
   },
   "Dashboard": {
     "title": "Panel",
+    "nav": {
+      "overview": "Panel",
+      "profile": "Perfil",
+      "links": "Enlaces",
+      "theme": "Tema",
+      "analytics": "Analítica",
+      "settings": "Ajustes",
+      "menuLabel": "Abrir menú",
+      "drawerLabel": "Navegación",
+      "navLabel": "Navegación principal"
+    },
     "signedInAs": "Sesión iniciada como",
     "settings": "Ajustes",
     "signOut": "Cerrar sesión",
