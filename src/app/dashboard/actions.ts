@@ -10,9 +10,27 @@ import { validateLink, LINK_ERROR_MESSAGES } from '@/lib/validation/link';
 export async function togglePublish() {
   const { page } = await requirePage();
 
-  await prisma.page.update({
-    where: { id: page.id },
-    data: { published: !page.published },
+  const newPublished = !page.published;
+
+  await prisma.$transaction(async (tx) => {
+    let acquisitionNumber = page.acquisitionNumber;
+
+    if (newPublished && acquisitionNumber === null) {
+      const [row] = await tx.$queryRaw<{ next: bigint }[]>`
+        SELECT nextval('acquisition_number_seq') AS next
+      `;
+      acquisitionNumber = Number(row.next);
+    }
+
+    await tx.page.update({
+      where: { id: page.id },
+      data: {
+        published: newPublished,
+        ...(acquisitionNumber !== page.acquisitionNumber && {
+          acquisitionNumber,
+        }),
+      },
+    });
   });
 
   revalidatePath('/dashboard');
