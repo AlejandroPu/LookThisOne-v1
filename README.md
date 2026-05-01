@@ -2,7 +2,7 @@
 
 A professional link-in-bio SaaS — one page, all your links, with analytics and multi-workspace collaboration built in.
 
-[![CI](https://github.com/AlejandroPu/LookThisOne/actions/workflows/ci.yml/badge.svg)](https://github.com/AlejandroPu/LookThisOne/actions/workflows/ci.yml)
+[![CI](https://github.com/AlejandroPu/LookThisOne-v1/actions/workflows/ci.yml/badge.svg)](https://github.com/AlejandroPu/LookThisOne-v1/actions/workflows/ci.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Prisma](https://img.shields.io/badge/Prisma-7-2D3748?logo=prisma)](https://www.prisma.io)
@@ -80,7 +80,7 @@ users ─┬─ workspace_members ─ workspaces ─┬─ pages ─┬─ links
 ### Setup
 
 ```bash
-git clone https://github.com/AlejandroPu/LookThisOne.git
+git clone https://github.com/AlejandroPu/LookThisOne-v1.git
 cd LookThisOne
 npm install
 cp .env.example .env.local
