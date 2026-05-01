@@ -318,7 +318,7 @@ npm run prisma:generate   # regenerate Prisma Client
 
 ## External infrastructure (quick reference)
 
-- **GitHub**: `https://github.com/AlejandroPu/LookThisOne`
+- **GitHub**: `https://github.com/AlejandroPu/LookThisOne-v1`
 - **Vercel**: project `look-this-one`, auto-deploy from `main`.
 - **Supabase**: project at `gogaohyatpsmtqisiyat.supabase.co` (Free tier).
   Data API enabled, automatic RLS enabled.
