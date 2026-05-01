@@ -11,7 +11,8 @@
  * All rows are tagged with is_demo=true so they can be cleanly removed when
  * real user profiles fill the catalog in v2.
  *
- * Avatars are served from public/avatars/ (01.png–15.png), assigned in order.
+ * Avatars are served from public/avatars/. Each profile declares its own
+ * filename in the `avatar` field — explicit mapping, safe to reorder.
  */
 
 import { PrismaClient } from '@prisma/client';
@@ -24,13 +25,10 @@ function demoEmail(slug: string) {
   return `demo+${slug}@lookthis.one`;
 }
 
-function avatarPath(index: number) {
-  return `/avatars/${String(index + 1).padStart(2, '0')}.png`;
-}
-
 const DEMO_PROFILES = [
   {
     username: 'ana.creates',
+    avatar: '01.png',
     title: 'Ana García',
     bio: 'Creadora de contenido ✨ · Madrid',
     links: [
@@ -41,6 +39,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'marcos.dev',
+    avatar: '02.png',
     title: 'Marcos López',
     bio: 'Desarrollador full-stack · freelance',
     links: [
@@ -51,6 +50,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'laurafit',
+    avatar: '03.png',
     title: 'Laura Fitness',
     bio: 'Entrenadora personal 💪 · online',
     links: [
@@ -61,6 +61,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'djnova',
+    avatar: '04.png',
     title: 'DJ Nova',
     bio: 'Música electrónica 🎶 · Ibiza',
     links: [
@@ -72,6 +73,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'foto.mx',
+    avatar: '05.png',
     title: 'Carlos Foto',
     bio: 'Fotógrafo profesional 📷 · México',
     links: [
@@ -82,6 +84,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'chef.ramon',
+    avatar: '06.png',
     title: 'Ramón Cocina',
     bio: 'Chef y foodie 🍳 · Barcelona',
     links: [
@@ -93,6 +96,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'mia.designs',
+    avatar: '07.png',
     title: 'Mía Rodríguez',
     bio: 'Diseñadora gráfica 🎨 · remota',
     links: [
@@ -103,6 +107,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'viajes.carlos',
+    avatar: '08.png',
     title: 'Carlos Viaja',
     bio: 'Nómada digital ✈️ · en movimiento',
     links: [
@@ -114,6 +119,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'yoga.sofia',
+    avatar: '09.png',
     title: 'Sofía Yoga',
     bio: 'Bienestar y meditación 🧘 · online',
     links: [
@@ -124,6 +130,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'el_poeta',
+    avatar: '10.png',
     title: 'Juan Poemas',
     bio: 'Escritor y poeta 📖 · Buenos Aires',
     links: [
@@ -134,6 +141,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'startup.alba',
+    avatar: '11.png',
     title: 'Alba Emprende',
     bio: 'Fundadora de startups 🚀 · Madrid',
     links: [
@@ -145,6 +153,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'gamer.leo',
+    avatar: '12.png',
     title: 'Leo Games',
     bio: 'Streamer y gamer 🎮 · online',
     links: [
@@ -156,6 +165,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'podcast.elena',
+    avatar: '13.png',
     title: 'Elena Ondas',
     bio: 'Podcaster · tecnología y cultura 🎙️',
     links: [
@@ -166,6 +176,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'arte.miguel',
+    avatar: '14.png',
     title: 'Miguel Arte',
     bio: 'Artista visual y muralista 🖌️ · Valencia',
     links: [
@@ -177,6 +188,7 @@ const DEMO_PROFILES = [
   },
   {
     username: 'finance.cris',
+    avatar: '15.png',
     title: 'Cristina Finanzas',
     bio: 'Educación financiera 💰 · online',
     links: [
@@ -203,9 +215,9 @@ async function nextAcquisitionNumber(
 async function main() {
   console.log(`Seeding ${DEMO_PROFILES.length} demo profiles…`);
 
-  for (const [i, profile] of DEMO_PROFILES.entries()) {
+  for (const profile of DEMO_PROFILES) {
     const email = demoEmail(profile.username);
-    const avatarUrl = avatarPath(i);
+    const avatarUrl = `/avatars/${profile.avatar}`;
 
     await prisma.$transaction(async (tx) => {
       // Upsert user (no auth.users row — demo accounts can't log in)
