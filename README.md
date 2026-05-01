@@ -10,11 +10,9 @@ A professional link-in-bio SaaS — one page, all your links, with analytics and
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Deploy on Vercel](https://img.shields.io/badge/Vercel-deploy-black?logo=vercel)](https://vercel.com)
 
-**v1 preview (work in progress):** [look-this-one.vercel.app](https://look-this-one.vercel.app) &nbsp;·&nbsp; **Live site repo:** [LookThisOne-legacy](https://github.com/AlejandroPu/LookThisOne-legacy)
+**Live demo:** [look-this-one.vercel.app](https://look-this-one.vercel.app) &nbsp;·&nbsp; **Legacy site repo:** [LookThisOne-legacy](https://github.com/AlejandroPu/LookThisOne-legacy)
 
-> **Note:** `lookthis.one` currently serves a legacy vanilla HTML/CSS/JS site from a separate repo. This repo is the v1 rebuild — deployed to Vercel as a preview while the new version is in development. Accounts created during this beta period may be wiped before the official launch.
-
-> The landing and UI currently ship with placeholder copy and minimal styling. Product polish is intentionally deferred until after the core flows (auth, dashboard, editor) land.
+> **v1 — public portfolio snapshot.** `lookthis.one` currently serves a legacy vanilla HTML/CSS/JS site from a separate repo. This repo is v1: fully shipped and frozen as a portfolio piece. v2 (real users, billing) ships from a separate private repo.
 
 ---
 
@@ -81,7 +79,7 @@ users ─┬─ workspace_members ─ workspaces ─┬─ pages ─┬─ links
 
 ```bash
 git clone https://github.com/AlejandroPu/LookThisOne-v1.git
-cd LookThisOne
+cd LookThisOne-v1
 npm install
 cp .env.example .env.local
 # Fill in .env.local with your Supabase values
@@ -173,7 +171,7 @@ See [`CLAUDE.md`](./CLAUDE.md) for the full contributor guide (also read by AI a
 - [x] Visual redesign (brand tokens, landing, dashboard, public profile)
 - [x] Mobile responsive layout
 - [x] Loading and error states (SubmitButton, error boundaries, dashboard skeleton)
-- [ ] Wrap up v1 — begin v2 in a private repo
+- [x] Wrap up v1 — v2 ships from a separate private repo
 
 ---
 
