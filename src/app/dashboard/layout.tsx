@@ -33,8 +33,10 @@ export default async function DashboardLayout({
         <DashboardSidebar {...sidebarProps} />
       </DashboardDrawer>
 
-      {/* Main content area */}
-      <div className="bg-off-white min-w-0 flex-1">{children}</div>
+      {/* Main content area — pt-14 clears the fixed mobile top bar on small screens */}
+      <div className="bg-off-white min-w-0 flex-1 pt-14 md:pt-0">
+        {children}
+      </div>
     </div>
   );
 }

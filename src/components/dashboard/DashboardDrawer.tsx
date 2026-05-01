@@ -126,9 +126,6 @@ export function DashboardDrawer({
         </button>
       </div>
 
-      {/* Spacer so page content doesn't hide under the fixed top bar */}
-      <div className="h-14 md:hidden" aria-hidden="true" />
-
       {/* Drawer */}
       {open && (
         <>
